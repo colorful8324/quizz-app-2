@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "9c90c9cd-d09b-48a8-a55b-4e6f0bbde39c",
+		"name": "QuizAppPostmanAPITestCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28634638"
+	},
+	"item": [
+		{
+			"name": "QuestionAPI",
+			"item": [
+				{
+					"name": "GetAllQuestion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/question",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetQuestionById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/question/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"question",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetQuestionsByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/question/category/java",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"question",
+								"category",
+								"java"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddQuestion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"questionTitle\": \"New Question?\",\r\n    \"option1\": \"NewAns1\",\r\n    \"option2\": \"NewAns2\",\r\n    \"option3\": \"NewAns3\",\r\n    \"option4\": \"NewAns4\",\r\n    \"correctAnswer\": \"NewAns2\",\r\n    \"difficultyLevel\": \"Easy\",\r\n    \"category\": \"Java\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/question",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateQuestionById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"questionTitle\": \"Update question\",\r\n    \"option1\": \"NewAns1\",\r\n    \"option2\": \"NewAns2\",\r\n    \"option3\": \"NewAns3\",\r\n    \"option4\": \"NewAns4\",\r\n    \"correctAnswer\": \"NewAns2\",\r\n    \"difficultyLevel\": \"Easy\",\r\n    \"category\": \"Java\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/question/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"question",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteQuestionById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/question/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"question",
+								"17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QuizAPI",
+			"item": [
+				{
+					"name": "CreateRandomQuiz",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/quiz?category=Java&numQ=5&title=JQuiz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"quiz"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Java"
+								},
+								{
+									"key": "numQ",
+									"value": "5"
+								},
+								{
+									"key": "title",
+									"value": "JQuiz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetScoreByQuiz",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 4,\r\n        \"userAnswer\": \"throw\"\r\n    },\r\n    {\r\n        \"id\": 5,\r\n        \"userAnswer\": \"It indicates that a method can be accessed without creating an instance of the class.\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"userAnswer\": \"5\"\r\n    },\r\n    {\r\n        \"id\": 9,\r\n        \"userAnswer\": \"+\"\r\n    },\r\n    {\r\n        \"id\": 10,\r\n        \"userAnswer\": \"ArrayList\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/quiz/submit/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"quiz",
+								"submit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
