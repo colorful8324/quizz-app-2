@@ -55,6 +55,13 @@ public class QuizServiceImpl implements QuizService {
     public Integer calculateMark(Integer quizId, List<Response> responseList) {
         Quiz quiz = quizRepository.findById(quizId).get();
         List<Question> questionList = quiz.getQuestions();
+        class sortById implements Comparator<Response> {
+            @Override
+            public int compare(Response o1, Response o2) {
+                return o1.getId() - o2.getId();
+            }
+        }
+        responseList.sort(new sortById());
         int correct = 0;
         for (int i = 0; i < responseList.size(); i++) {
             // if user's answer matches correct answer

@@ -17,7 +17,7 @@ public class QuizRestController {
         this.quizServiceImpl = quizServiceImpl;
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public Quiz createQuiz(@RequestParam String category, @RequestParam int numQ, @RequestParam String title) {
         return quizServiceImpl.createQuiz(category, numQ, title);
     }

@@ -47,8 +47,9 @@ public class QuestionRestController {
         return questionServiceImpl.saveQuestion(theQuestion);
     }
 
-    @PutMapping
-    public Question updateQuestion(@RequestBody Question theQuestion) {
+    @PutMapping("/{id}")
+    public Question updateQuestion(@PathVariable Integer id, @RequestBody Question theQuestion) {
+        theQuestion.setId(id);
         return questionServiceImpl.saveQuestion(theQuestion);
     }
 
